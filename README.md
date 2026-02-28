@@ -50,7 +50,7 @@ forge install
 # Build
 forge build
 
-# Test (161 tests across 7 suites)
+# Test (117 tests across 5 suites)
 forge test -vvv
 ```
 
@@ -83,7 +83,7 @@ src/
   HavonaMemberManager.sol      — Member registry
   interfaces/                  — Contract interfaces
   components/                  — CBOR encoding libraries
-test/                          — Foundry tests (161 total)
+test/                          — Foundry tests (117 total)
 script/                        — Deploy scripts + deploy_iota.sh
 deployments/                   — Deployment records (JSON)
 ```
