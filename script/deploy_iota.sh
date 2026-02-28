@@ -2,7 +2,7 @@
 
 # Deploy Havona Smart Contracts to IOTA EVM
 #
-# IOTA EVM is a standard EVM L2 — supports forge script natively.
+# IOTA EVM is a standard EVM L2, supports forge script natively.
 # Deploys all 7 contracts in 5 stages:
 #   1. P256Verifier + HavonaPersistor (trade persistence)
 #   2. HavonaAgentRegistry + HavonaAgentReputation (ERC-8004 agent identity)
@@ -44,7 +44,7 @@ EXPLORER="$IOTA_EVM_TESTNET_EXPLORER"
 DRY_RUN=false
 PRIVATE_KEY="${PRIVATE_KEY:-}"
 
-# Paths — repo root is one level up from script/
+# Paths (repo root is one level up from script/)
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 

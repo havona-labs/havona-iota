@@ -1,6 +1,6 @@
 # Architecture
 
-Havona's IOTA integration spans three layers: on-chain contracts (this repository), off-chain services (private), and IOTA-native protocols.
+Havona's IOTA integration has three layers: on-chain contracts (this repo), off-chain services (private), and IOTA-native protocols.
 
 ## Contract Architecture
 
@@ -37,7 +37,7 @@ Havona's IOTA integration spans three layers: on-chain contracts (this repositor
 
 **ETRRegistry** records MLETR-compliant lifecycle events for Electronic Transferable Records: pledge, release, transfer, liquidation, and redemption. These events form the immutable audit trail required by banks and regulators.
 
-**ETRSeal** is a permissionless public good. Any party can hash and timestamp a trade document on IOTA EVM. Verification is free (view function). Useful for pre-submission document attestation, inspection certificates, and independent proof of existence.
+**ETRSeal** is permissionless. Any party can hash and timestamp a trade document on IOTA EVM. Verification is free (view function). Useful for pre-submission document attestation, inspection certificates, and independent proof of existence.
 
 ### Identity Layer
 
@@ -53,29 +53,29 @@ Havona's IOTA integration spans three layers: on-chain contracts (this repositor
 
 ### IOTA Identity (Milestone 2)
 
-IOTA Identity provides W3C DID-compliant decentralised identifiers anchored on the IOTA Tangle (MoveVM L1). The integration architecture:
+IOTA Identity provides W3C DID-compliant decentralised identifiers anchored on the IOTA Tangle (MoveVM L1). The integration:
 
-1. **On-chain anchor** (IOTAIdentityAnchor.sol) — stores DID-to-address mappings on EVM
-2. **Off-chain resolver** (IOTA Identity WASM SDK) — resolves full DID documents from Tangle
-3. **Verification flow**: trade counterparty submits DID → server resolves via SDK → verifies controller → anchors on EVM → subsequent lookups are on-chain only
+1. **On-chain anchor** (IOTAIdentityAnchor.sol): stores DID-to-address mappings on EVM
+2. **Off-chain resolver** (IOTA Identity WASM SDK): resolves full DID documents from Tangle
+3. **Verification flow**: counterparty submits DID > server resolves via SDK > verifies controller > anchors on EVM > subsequent lookups are on-chain only
 
-This removes the need for centralised certificate authorities in trade document workflows.
+No centralised certificate authorities needed for trade document workflows.
 
 ### TWIN Foundation Data (Milestone 2)
 
 The Trade and Welfare Information Network (TWIN), co-founded by the IOTA Foundation, WEF, and the Tony Blair Institute, provides standardised trade data infrastructure. Integration points:
 
-- **Trade data standards** — TWIN's data schemas for agricultural commodity trade align with Havona's trade contract model
-- **Cross-border data sharing** — TWIN's existing government pilot networks (Rwanda, Kenya, Ethiopia) provide real trade corridors for Havona deployment
-- **Regulatory compliance** — TWIN's regulatory frameworks inform Havona's MLETR compliance approach
+- **Trade data standards**: TWIN's data schemas for agricultural commodity trade align with Havona's trade contract model
+- **Cross-border data sharing**: TWIN's existing government pilot networks (Rwanda, Kenya, Ethiopia) provide real trade corridors for Havona deployment
+- **Regulatory compliance**: TWIN's regulatory frameworks inform Havona's MLETR compliance approach
 
 ### Gas Station / ERC-4337 (Milestone 3)
 
 IOTA's Gas Station operates on MoveVM L1 and is not directly available on EVM L2. For the EVM layer, Havona will implement gasless transactions via ERC-4337 account abstraction:
 
-- **Bundler** — submits UserOperations on behalf of trade participants
-- **Paymaster** — Havona-operated paymaster covers gas for verified trade operations
-- **Smart accounts** — trade counterparties interact through smart contract wallets, removing the need to hold IOTA tokens
+- **Bundler**: submits UserOperations on behalf of trade participants
+- **Paymaster**: Havona-operated paymaster covers gas for verified trade operations
+- **Smart accounts**: trade counterparties interact through smart contract wallets, no need to hold IOTA tokens
 
 This removes the gas barrier for non-crypto-native trade participants (banks, commodity traders, shipping companies).
 
@@ -98,7 +98,7 @@ Total cost to deploy all 7 contracts: ~0.03 IOTA.
 
 ## Security Model
 
-- **Owner-gated writes**: HavonaPersistor, ETRRegistry, IOTAIdentityAnchor, AgentRegistry — only the deploying Havona server can write
+- **Owner-gated writes**: HavonaPersistor, ETRRegistry, IOTAIdentityAnchor, AgentRegistry. Only the deploying Havona server can write.
 - **Permissionless reads**: all view functions are public and free
 - **Permissionless writes**: ETRSeal is fully permissionless (public good)
 - **Hardware signing**: P256Verifier supports WebAuthn/YubiKey for trade submission attestation

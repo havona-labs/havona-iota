@@ -2,7 +2,7 @@
   <img src="assets/logo.png" alt="Havona" width="280" />
 </p>
 
-# Havona — IOTA EVM Smart Contracts
+# Havona - IOTA EVM Smart Contracts
 
 Digital trade contract infrastructure for IOTA. Seven smart contracts deployed on IOTA EVM handling trade persistence, MLETR-compliant electronic transferable records, autonomous agent identity (ERC-8004), document attestation, and IOTA Identity DID anchoring.
 
@@ -24,20 +24,20 @@ Chain ID: **1076** | RPC: `https://json-rpc.evm.testnet.iotaledger.net`
 
 Havona is a trade contract and document management platform for international commodity trading. These contracts provide the on-chain layer:
 
-- **Trade persistence** — CBOR-encoded trade data with versioning, access control, and hardware-backed P-256 signatures (WebAuthn/YubiKey)
-- **Electronic Transferable Records** — MLETR-compliant lifecycle tracking (pledge, transfer, liquidation, redemption) for bills of lading, promissory notes, and warehouse receipts
-- **Document attestation** — Permissionless hash-and-timestamp for any trade document. Free verification. A public good on IOTA EVM
-- **Agent identity** — ERC-8004 registry for autonomous trade agents with reputation tracking
-- **DID anchoring** — Bidirectional mapping between IOTA Identity DIDs and EVM addresses
+- **Trade persistence**: CBOR-encoded trade data with versioning, access control, and hardware-backed P-256 signatures (WebAuthn/YubiKey)
+- **Electronic Transferable Records**: MLETR-compliant lifecycle tracking (pledge, transfer, liquidation, redemption) for bills of lading, promissory notes, and warehouse receipts
+- **Document attestation**: permissionless hash-and-timestamp for any trade document. Free verification. A public good on IOTA EVM
+- **Agent identity**: ERC-8004 registry for autonomous trade agents with reputation tracking
+- **DID anchoring**: bidirectional mapping between IOTA Identity DIDs and EVM addresses
 
 ## Why IOTA
 
 IOTA's ecosystem aligns with Havona's trade infrastructure needs:
 
-- **TWIN Foundation** — co-founded with the WEF and Tony Blair Institute for trade data standardisation. Existing pilot networks in Rwanda, Kenya, and Ethiopia provide real trade corridors
-- **IOTA Identity** — W3C DID-compliant decentralised identifiers for trade participant verification without centralised certificate authorities
-- **EVM compatibility** — standard Solidity contracts deploy without modification, with low gas costs (~0.001 IOTA per transaction)
-- **Gas Station / ERC-4337** — path to gasless transactions for non-crypto-native trade participants (banks, commodity traders)
+- **TWIN Foundation**: co-founded with the WEF and Tony Blair Institute for trade data standardisation. Existing pilot networks in Rwanda, Kenya, and Ethiopia provide real trade corridors
+- **IOTA Identity**: W3C DID-compliant decentralised identifiers for trade participant verification without centralised certificate authorities
+- **EVM compatibility**: standard Solidity contracts deploy without modification, with low gas costs (~0.001 IOTA per transaction)
+- **Gas Station / ERC-4337**: path to gasless transactions for non-crypto-native trade participants (banks, commodity traders)
 
 ## Build and Test
 
@@ -77,25 +77,25 @@ IOTA EVM does not support EIP-1559. The deploy script uses `--legacy` transactio
 
 ```
 src/
-  HavonaPersistor.sol          — Trade data persistence (CBOR + P-256)
-  P256Verifier.sol             — WebAuthn/YubiKey P-256 verification
-  ETRRegistry.sol              — MLETR lifecycle events
-  ETRSeal.sol                  — Permissionless document attestation
-  IOTAIdentityAnchor.sol       — IOTA Identity DID anchor
-  HavonaAgentRegistry.sol      — ERC-8004 agent identity
-  HavonaAgentReputation.sol    — Agent reputation
-  HavonaMemberManager.sol      — Member registry
-  interfaces/                  — Contract interfaces
-  components/                  — CBOR encoding libraries
-test/                          — Foundry tests (117 total)
-script/                        — Deploy scripts + deploy_iota.sh
-deployments/                   — Deployment records (JSON)
+  HavonaPersistor.sol          Trade data persistence (CBOR + P-256)
+  P256Verifier.sol             WebAuthn/YubiKey P-256 verification
+  ETRRegistry.sol              MLETR lifecycle events
+  ETRSeal.sol                  Permissionless document attestation
+  IOTAIdentityAnchor.sol       IOTA Identity DID anchor
+  HavonaAgentRegistry.sol      ERC-8004 agent identity
+  HavonaAgentReputation.sol    Agent reputation
+  HavonaMemberManager.sol      Member registry
+  interfaces/                  Contract interfaces
+  components/                  CBOR encoding libraries
+test/                          Foundry tests (117 total)
+script/                        Deploy scripts + deploy_iota.sh
+deployments/                   Deployment records (JSON)
 ```
 
 ## Documentation
 
-- [DEPLOYMENTS.md](DEPLOYMENTS.md) — All contract addresses with explorer links
-- [ARCHITECTURE.md](ARCHITECTURE.md) — IOTA integration architecture (TWIN, Identity, ERC-4337, Gas Station)
+- [DEPLOYMENTS.md](DEPLOYMENTS.md) - contract addresses with explorer links
+- [ARCHITECTURE.md](ARCHITECTURE.md) - IOTA integration architecture (TWIN, Identity, ERC-4337, Gas Station)
 
 ## Licence
 
