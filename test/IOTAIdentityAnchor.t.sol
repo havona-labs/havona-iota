@@ -16,19 +16,9 @@ contract IOTAIdentityAnchorTest is Test {
     string internal constant DID_2 = "did:iota:smr:0x789ghi012jkl";
     string internal constant DID_3 = "did:iota:smr:0xmno345pqr678";
 
-    event DIDAnchored(
-        string indexed didHash,
-        string did,
-        address indexed evmAddress,
-        uint256 timestamp
-    );
+    event DIDAnchored(string indexed didHash, string did, address indexed evmAddress, uint256 timestamp);
 
-    event DIDRemoved(
-        string indexed didHash,
-        string did,
-        address indexed evmAddress,
-        uint256 timestamp
-    );
+    event DIDRemoved(string indexed didHash, string did, address indexed evmAddress, uint256 timestamp);
 
     function setUp() public {
         owner = address(this);

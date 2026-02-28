@@ -20,9 +20,9 @@ contract ETRSeal {
     // ============ Storage ============
 
     struct Seal {
-        address sealer;    // Who sealed the document
+        address sealer; // Who sealed the document
         uint256 timestamp; // When it was sealed
-        uint256 blockNum;  // Block number for extra anchoring
+        uint256 blockNum; // Block number for extra anchoring
     }
 
     /// @notice Document hash => seal record
@@ -34,19 +34,10 @@ contract ETRSeal {
     // ============ Events ============
 
     /// @notice Emitted when a document is sealed
-    event DocumentSealed(
-        bytes32 indexed documentHash,
-        address indexed sealer,
-        uint256 timestamp,
-        uint256 blockNumber
-    );
+    event DocumentSealed(bytes32 indexed documentHash, address indexed sealer, uint256 timestamp, uint256 blockNumber);
 
     /// @notice Emitted during batch sealing (one per document)
-    event BatchSealed(
-        bytes32 indexed documentHash,
-        address indexed sealer,
-        uint256 batchSize
-    );
+    event BatchSealed(bytes32 indexed documentHash, address indexed sealer, uint256 batchSize);
 
     // ============ Write Functions ============
 
@@ -59,13 +50,11 @@ contract ETRSeal {
         require(documentHash != bytes32(0), "Empty hash");
         require(seals[documentHash].timestamp == 0, "Already sealed");
 
-        seals[documentHash] = Seal({
-            sealer: msg.sender,
-            timestamp: block.timestamp,
-            blockNum: block.number
-        });
+        seals[documentHash] = Seal({sealer: msg.sender, timestamp: block.timestamp, blockNum: block.number});
 
-        unchecked { sealCount++; }
+        unchecked {
+            sealCount++;
+        }
 
         emit DocumentSealed(documentHash, msg.sender, block.timestamp, block.number);
     }
@@ -86,18 +75,18 @@ contract ETRSeal {
             require(docHash != bytes32(0), "Empty hash in batch");
             require(seals[docHash].timestamp == 0, "Already sealed");
 
-            seals[docHash] = Seal({
-                sealer: msg.sender,
-                timestamp: block.timestamp,
-                blockNum: block.number
-            });
+            seals[docHash] = Seal({sealer: msg.sender, timestamp: block.timestamp, blockNum: block.number});
 
             emit BatchSealed(docHash, msg.sender, len);
 
-            unchecked { i++; }
+            unchecked {
+                i++;
+            }
         }
 
-        unchecked { sealCount += len; }
+        unchecked {
+            sealCount += len;
+        }
     }
 
     // ============ View Functions ============

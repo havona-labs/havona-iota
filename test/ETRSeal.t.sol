@@ -14,18 +14,9 @@ contract ETRSealTest is Test {
     bytes32 internal constant DOC_HASH_2 = keccak256("letter-of-credit-002");
     bytes32 internal constant DOC_HASH_3 = keccak256("inspection-cert-003");
 
-    event DocumentSealed(
-        bytes32 indexed documentHash,
-        address indexed sealer,
-        uint256 timestamp,
-        uint256 blockNumber
-    );
+    event DocumentSealed(bytes32 indexed documentHash, address indexed sealer, uint256 timestamp, uint256 blockNumber);
 
-    event BatchSealed(
-        bytes32 indexed documentHash,
-        address indexed sealer,
-        uint256 batchSize
-    );
+    event BatchSealed(bytes32 indexed documentHash, address indexed sealer, uint256 batchSize);
 
     function setUp() public {
         alice = address(0x1);

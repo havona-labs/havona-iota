@@ -35,20 +35,10 @@ contract IOTAIdentityAnchor is Ownable {
     // ============ Events ============
 
     /// @notice Emitted when a DID is anchored to an EVM address
-    event DIDAnchored(
-        string indexed didHash,
-        string did,
-        address indexed evmAddress,
-        uint256 timestamp
-    );
+    event DIDAnchored(string indexed didHash, string did, address indexed evmAddress, uint256 timestamp);
 
     /// @notice Emitted when a DID anchor is removed
-    event DIDRemoved(
-        string indexed didHash,
-        string did,
-        address indexed evmAddress,
-        uint256 timestamp
-    );
+    event DIDRemoved(string indexed didHash, string did, address indexed evmAddress, uint256 timestamp);
 
     // ============ Constructor ============
 
@@ -88,7 +78,9 @@ contract IOTAIdentityAnchor is Ownable {
                 if (!isNewAnchor) {
                     // Both address and DID were already anchored (to different things)
                     // After this operation, one fewer unique anchor exists
-                    unchecked { anchorCount--; }
+                    unchecked {
+                        anchorCount--;
+                    }
                 }
                 isNewAnchor = false;
             } else {
@@ -98,7 +90,9 @@ contract IOTAIdentityAnchor is Ownable {
         }
 
         if (isNewAnchor) {
-            unchecked { anchorCount++; }
+            unchecked {
+                anchorCount++;
+            }
         }
 
         didToAddress[did] = evmAddress;
@@ -119,7 +113,9 @@ contract IOTAIdentityAnchor is Ownable {
         delete didToAddress[did];
         delete addressToDid[evmAddress];
 
-        unchecked { anchorCount--; }
+        unchecked {
+            anchorCount--;
+        }
 
         emit DIDRemoved(did, did, evmAddress, block.timestamp);
     }
