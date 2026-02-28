@@ -1,0 +1,22 @@
+# Compiler output
+cache/
+out/
+
+# Dependencies
+lib/
+node_modules/
+
+# Environment
+.env
+.env.*
+
+# Forge broadcast logs (contain tx hashes, not secrets)
+broadcast/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/

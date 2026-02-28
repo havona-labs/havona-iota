@@ -1,0 +1,38 @@
+{
+  "network": "IOTA EVM Testnet",
+  "chainId": 1076,
+  "rpcUrl": "https://json-rpc.evm.testnet.iotaledger.net",
+  "explorer": "https://explorer.evm.testnet.iotaledger.net",
+  "deployedAt": "2026-02-28T22:00:00Z",
+  "deployer": "0x6BA33AD26aDf9d115BFf918D0FdB5d16397Bd941",
+  "contracts": {
+    "HavonaPersistor": {
+      "address": "0x8b43Aef8D96FAE2FC3c428B00A127D80D159C131",
+      "description": "Trade data persistence with CBOR encoding and P-256 hardware signing"
+    },
+    "P256Verifier": {
+      "address": "0xb6d9e6dC3f13413656b74951776f1EE067758613",
+      "description": "WebAuthn/YubiKey P-256 signature verification"
+    },
+    "HavonaAgentRegistry": {
+      "address": "0x15aD28c89CD9364DC1476a400916a18b0AD35ec1",
+      "description": "ERC-8004 autonomous agent identity registry"
+    },
+    "HavonaAgentReputation": {
+      "address": "0x992F88045410e5D0b923384e372058db8c3ccc29",
+      "description": "Agent reputation and feedback tracking"
+    },
+    "ETRRegistry": {
+      "address": "0x8C624363eba4FA8Da595EDa6cC2052D993c4Bd99",
+      "description": "MLETR-compliant Electronic Transferable Record lifecycle events"
+    },
+    "ETRSeal": {
+      "address": "0x96Ee195016BeA9881CE6D60F6A69A7abDceDa052",
+      "description": "Permissionless document attestation (public good)"
+    },
+    "IOTAIdentityAnchor": {
+      "address": "0xa4CBeF2975544378BbB4808f8cF8Db362D10eEca",
+      "description": "IOTA Identity DID to EVM address bidirectional anchor"
+    }
+  }
+}

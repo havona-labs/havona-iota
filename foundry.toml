@@ -1,0 +1,19 @@
+[profile.default]
+src = "src"
+out = "out"
+libs = ["lib"]
+solc = "0.8.20"
+remappings = [
+    "@openzeppelin/contracts/=lib/openzeppelin-contracts/contracts/",
+    "forge-std/=lib/forge-std/src/",
+]
+
+# IOTA EVM endpoints
+[rpc_endpoints]
+iota_evm_testnet = "https://json-rpc.evm.testnet.iotaledger.net"
+iota_evm = "https://json-rpc.evm.iotaledger.net"
+
+# Verifier (Blockscout on IOTA EVM)
+[etherscan]
+iota_evm_testnet = { key = "", url = "https://explorer.evm.testnet.iotaledger.net/api" }
+iota_evm = { key = "", url = "https://explorer.evm.iotaledger.net/api" }
