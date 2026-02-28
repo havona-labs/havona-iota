@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="assets/logo.png" alt="Havona" width="280" />
+</p>
+
 # Havona — IOTA EVM Smart Contracts
 
 Digital trade contract infrastructure for IOTA. Seven smart contracts deployed on IOTA EVM handling trade persistence, MLETR-compliant electronic transferable records, autonomous agent identity (ERC-8004), document attestation, and IOTA Identity DID anchoring.
